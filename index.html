@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios de Seguridad</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    margin: 0;
+    padding: 40px;
+}
+
+.card {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    border: 2px solid #d10000;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #d10000;
+    text-align: center;
+}
+
+h2 {
+    color: #d10000;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #d10000;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.total {
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    color: #d10000;
+    margin-top: 20px;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #555;
+}
+
+.recomendaciones {
+    background-color: #f9f9f9;
+    border-left: 4px solid #d10000;
+    padding: 15px 20px;
+    margin: 30px 0 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.btn-pdf {
+    background-color: #d10000;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-pdf:hover {
+    background-color: #a00000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Propuesta de Servicios de Seguridad</h1>
+
+<p>
+Evaluación básica de seguridad para aplicaciones web enfocada en vulnerabilidades críticas según OWASP Top 10.
+</p>
+
+<h2>Servicios Incluidos</h2>
+
+<table>
+<tr>
+<th>Servicio</th>
+<th>Descripción</th>
+<th>Valor</th>
+</tr>
+
+<tr>
+<td>Control de Acceso</td>
+<td>Validación de autenticación, roles e IDOR</td>
+<td>$90.000</td>
+</tr>
+
+<tr>
+<td>Inyección</td>
+<td>Pruebas de SQL Injection y comandos</td>
+<td>$80.000</td>
+</tr>
+
+<tr>
+<td>XSS</td>
+<td>Pruebas de Cross-Site Scripting</td>
+<td>$70.000</td>
+</tr>
+
+<tr>
+<td>Configuración</td>
+<td>Revisión de configuraciones inseguras</td>
+<td>$50.000</td>
+</tr>
+
+<tr>
+<td>Dependencias</td>
+<td>Análisis de librerías vulnerables</td>
+<td>$40.000</td>
+</tr>
+
+<tr>
+<td>SSRF</td>
+<td>Validación de acceso a recursos internos</td>
+<td>$40.000</td>
+</tr>
+
+<tr>
+<td>DDoS (básico)</td>
+<td>Prueba de carga controlada (no destructiva)</td>
+<td>$40.000</td>
+</tr>
+
+<tr>
+<td>Archivo de Recomendaciones</td>
+<td>Documento con recomendaciones detalladas para mitigar vulnerabilidades</td>
+<td>$40.000</td>
+</tr>
+
+</table>
+
+<div class="total"> TOTAL: $450.000 COP </div>
+
+<h2>Condiciones</h2>
+<ul>
+<li>Tiempo de ejecución: 5 días hábiles</li>
+<li>Entrega de informe técnico detallado</li>
+<li>Pruebas realizadas en entorno controlado (staging)</li>
+<li>No incluye certificación oficial</li>
+</ul>
+
+<h2>Recomendaciones de Vulnerabilidades</h2>
+
+<div id="recomendaciones-detalladas" class="recomendaciones">
+<h3 style="color:#d10000; margin-top:0;">Medidas de mitigación recomendadas</h3>
+<ul>
+<li><strong>Control de Acceso:</strong> Implementar verificación a nivel de servidor; usar tokens CSRF y políticas CORS estrictas.</li>
+<li><strong>Inyección SQL:</strong> Consultas parametrizadas y validación de entradas.</li>
+<li><strong>XSS:</strong> Codificación de salida + Content Security Policy (CSP).</li>
+<li><strong>Configuración insegura:</strong> Uso de HTTPS (TLS 1.2+), eliminar headers innecesarios.</li>
+<li><strong>Dependencias:</strong> Actualización constante + escaneo automático.</li>
+<li><strong>SSRF:</strong> Whitelist de dominios y validación de URLs.</li>
+<li><strong>DDoS:</strong> Rate limiting + protección en capa de red.</li>
+<li><strong>Autenticación:</strong> MFA + políticas de contraseñas robustas.</li>
+</ul>
+<p style="font-style:italic;">
+Basado en OWASP Top 10 y buenas prácticas de seguridad.
+</p>
+</div>
+
+<button class="btn-pdf" onclick="descargarPDF()">📄 Descargar recomendaciones en PDF</button>
+<button class="btn-pdf" onclick="descargarCotizacion()" style="margin-left:10px">🖨️ Imprimir cotización</button>
+
+<div class="footer">
+Este servicio corresponde a una evaluación técnica inicial para identificar riesgos de seguridad.
+</div>
+
+</div>
+
+<script>
+function descargarPDF() {
+    function loadScript(src, cb) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = cb;
+        document.head.appendChild(s);
+    }
+
+    function generarYDescargar() {
+        var contenido = document.getElementById('recomendaciones-detalladas');
+        var clone = contenido.cloneNode(true);
+
+        var wrapper = document.createElement('div');
+        wrapper.style.padding = '20px';
+
+        var h2 = document.createElement('h2');
+        h2.textContent = 'Recomendaciones de Vulnerabilidades';
+        h2.style.color = '#d10000';
+
+        wrapper.appendChild(h2);
+        wrapper.appendChild(clone);
+        document.body.appendChild(wrapper);
+
+        html2pdf().from(wrapper).save().then(() => {
+            document.body.removeChild(wrapper);
+        });
+    }
+
+    if (typeof html2pdf === 'undefined') {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js', generarYDescargar);
+    } else {
+        generarYDescargar();
+    }
+}
+
+function descargarCotizacion() {
+    function loadScript(src, cb) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = cb;
+        document.head.appendChild(s);
+    }
+
+    function generarYDescargarCotizacion() {
+        var contenido = document.querySelector('.card');
+        var clone = contenido.cloneNode(true);
+
+        var wrapper = document.createElement('div');
+        wrapper.style.padding = '20px';
+        wrapper.appendChild(clone);
+
+        document.body.appendChild(wrapper);
+
+        html2pdf().from(wrapper).save().then(() => {
+            document.body.removeChild(wrapper);
+        });
+    }
+
+    if (typeof html2pdf === 'undefined') {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js', generarYDescargarCotizacion);
+    } else {
+        generarYDescargarCotizacion();
+    }
+}
+</script>
+
+</body>
+</html>

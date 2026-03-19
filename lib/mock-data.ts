@@ -1,0 +1,58 @@
+import type { MedicalDocument } from "./types"
+
+export const MOCK_DOCUMENTS: MedicalDocument[] = [
+  {
+    id: "1",
+    title: "Hemograma Completo",
+    type: "laboratorio",
+    date: "2026-02-15",
+    doctor: "Dr. Carlos Martinez",
+    ocrText: "Hemoglobina 14.2 g/dL Hematocrito 42% Leucocitos 7500 Plaquetas 250000",
+    tags: ["sangre", "hemograma", "laboratorio"],
+  },
+  {
+    id: "2",
+    title: "Formula - Losartan 50mg",
+    type: "formula",
+    date: "2026-02-10",
+    doctor: "Dra. Ana Rodriguez",
+    ocrText: "Losartan 50mg cada 12 horas por 30 dias. Tomar con alimentos.",
+    tags: ["hipertension", "losartan", "formula"],
+  },
+  {
+    id: "3",
+    title: "Radiografia de Torax",
+    type: "rayos_x",
+    date: "2026-01-28",
+    doctor: "Dr. Pedro Gomez",
+    ocrText: "Campos pulmonares sin consolidaciones. Silueta cardiaca normal. Sin derrame pleural.",
+    tags: ["torax", "pulmon", "radiografia"],
+  },
+  {
+    id: "4",
+    title: "Incapacidad - 3 dias",
+    type: "incapacidad",
+    date: "2026-01-20",
+    doctor: "Dr. Carlos Martinez",
+    ocrText: "Se otorga incapacidad por 3 dias a partir del 20 de enero. Diagnostico: Gripa comun.",
+    tags: ["incapacidad", "gripa"],
+  },
+  {
+    id: "5",
+    title: "Historia Clinica General",
+    type: "historia_clinica",
+    date: "2026-01-10",
+    doctor: "Dra. Ana Rodriguez",
+    ocrText: "Paciente de 65 anos. Antecedentes: Hipertension arterial controlada. Sin alergias conocidas.",
+    tags: ["historia", "antecedentes", "hipertension"],
+  },
+  {
+    id: "6",
+    title: "Perfil Lipidico",
+    type: "laboratorio",
+    date: "2025-12-20",
+    doctor: "Dr. Carlos Martinez",
+    ocrText: "Colesterol Total 195 mg/dL LDL 120 HDL 55 Trigliceridos 150",
+    tags: ["colesterol", "lipidos", "laboratorio"],
+  },
+]
